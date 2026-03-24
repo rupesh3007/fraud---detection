@@ -1,0 +1,21 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[dev]
+  command = "npm run dev"
+  port = 5173
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  VITE_API_URL = "https://your-backend-api.com"
+
+[context.deploy-preview.environment]
+  VITE_API_URL = "https://your-backend-staging.com"
+
+[context.branch-deploy.environment]
+  VITE_API_URL = "http://localhost:5000"
